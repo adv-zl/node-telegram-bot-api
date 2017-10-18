@@ -1359,6 +1359,19 @@ class TelegramBot extends EventEmitter {
   }
 
   /**
+   * Use this method to get information whether user is admin or not.
+   * @param  {String} userId  Unique identifier of the target user
+   * @return {Promise}
+   * @see https://core.telegram.org/bots/api#isadmin
+   */
+  isAdmin(userId) {
+    const form = {
+      user_id: userId
+    };
+    return this._request('isAdmin', { form });
+  }
+  
+  /**
    * Use this method to get information about a member of a chat.
    * @param  {Number|String} chatId  Unique identifier for the target group or username of the target supergroup
    * @param  {String} userId  Unique identifier of the target user
